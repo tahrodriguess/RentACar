@@ -100,13 +100,13 @@ public class Car implements CarInterface {
     @Override
     public boolean isAvailable(Month month, int day) {
             
-            boolean[] availability = map.get(month);
+            //Boolean[] availability = map.get(month);
                 
-                if (availability[day-1] == null) { //HEEEEEELP
-                    availability[day-1] = true;
-                }
+                if (map.get(month)[day-1] == null) { //HEEEEEELP
+                    map.get(month)[day-1] = true;
+                }// I don't know what to do I'm thinking of another way to write it because boolean is a primitive type and can not read null.
                 
-        return availability[day-1];
+        return map.containsKey(day);
         
         
       }  
