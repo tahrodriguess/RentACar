@@ -89,9 +89,9 @@ public class Car implements CarInterface {
 
     @Override
     public boolean isAvailable(Month month, int day) {
-        Boolean[] availability = map.get(month);
-        if (availability[day-1] == null) { //condition to see if the car available
-            availability[day-1] = true; //null if it's available, return true
+        Boolean[] availability = map.get(month);//access a value in the enum 
+        if (availability[day-1] == null) { 
+            availability[day-1] = true; //if it's available return true
         }
         
         return availability[day-1];
@@ -99,7 +99,7 @@ public class Car implements CarInterface {
 
     @Override
     public boolean book(Month month, int day) {
-        if (map.get(month)[day-1]) { //condition to check availability
+        if (map.get(month)[day-1]) { 
             map.get(month)[day-1] = false; //if it's not booked return true
             return true;
         }

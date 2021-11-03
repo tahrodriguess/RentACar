@@ -24,7 +24,7 @@ public class BookingSystem implements BookingSystemInterface{
         List<Car> cars = new ArrayList<>();
         name = in.readLine();
         
-        while ((su = in.readLine()) !=null){
+        while ((su = in.readLine()) !=null){ //read the next line until is null
             String s[] = su.split(":");
             
             Make make = Make.valueOf(s[0]);
