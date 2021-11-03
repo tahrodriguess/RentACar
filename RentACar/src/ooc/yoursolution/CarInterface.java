@@ -25,7 +25,7 @@ public interface CarInterface {
      * @return Map of availability
      */
     public Map<Month, boolean[]> createAvailability();
-    
+   
     /**
      * Getter method for the make of this car.
      * 

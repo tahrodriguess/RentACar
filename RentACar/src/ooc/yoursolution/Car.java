@@ -15,6 +15,10 @@ import ooc.enums.Month;
  * @author TahR
  */
 public class Car implements CarInterface {
+    
+    public int n (numberOfDays){
+        
+    }
 
     @Override
     public Map<Month, boolean[]> createAvailability() {
