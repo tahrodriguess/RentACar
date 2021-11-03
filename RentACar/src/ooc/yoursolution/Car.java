@@ -20,6 +20,7 @@ public class Car implements CarInterface {
         private int id;
         private Make make;
         private double rate;
+        private  Map<Month, boolean[]> map;
         
         
         public Car (int id, Make make, double rate){
@@ -27,15 +28,28 @@ public class Car implements CarInterface {
             this.id = id;
             this.make = make;
             this.rate = rate;
-            Map<Month, boolean[]> map;
+            this.map = map;
             createAvailability();
         }
         
     @Override
-    public Map<Month, boolean[]> createAvailability() {
-            HashMap<Object, Object> map = new HashMap<>();
+    public Map<Month, boolean[]> createAvailability()  {
+             
         
-        return null; 
+        map.put(Month.JANUARY, new boolean [31]);
+        map.put(Month.FEBRUARY, new boolean [28]);
+        map.put(Month.MARCH, new boolean [31]);
+        map.put(Month.APRIL, new boolean [30]);
+        map.put(Month.MAY, new boolean [31]);
+        map.put(Month.JUNE, new boolean [30]);
+        map.put(Month.JULY, new boolean [31]);
+        map.put(Month.AUGUST, new boolean [31]);
+        map.put(Month.SEPTEMBER, new boolean [30]);
+        map.put(Month.OCTOBER, new boolean [31]);
+        map.put(Month.NOVEMBER, new boolean [30]);
+        map.put(Month.DECEMBER, new boolean [31]);
+        
+        return map; 
     }
 
     @Override
