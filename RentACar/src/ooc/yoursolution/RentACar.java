@@ -24,28 +24,45 @@ public class RentACar implements RentACarInterface {
     }
     
     @Override
-    public List<CarInterface> getCars() {
-        
+    public List getCars() {
+        return cars;
     }
 
     @Override
-    public void setCars(List<CarInterface> cars) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setCars(List cars) {
+        this.cars = cars;
     }
 
     @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return name;
     }
 
     @Override
     public void setName(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.name = name;
     }
 
     @Override
     public boolean checkAvailability(Month month, int day, Make make, int lengthOfRent) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int currentDay, flag;
+        
+        for(Car car : cars){
+            if(car.getMake().equals(make)){
+                flag = 0;
+                currentDay = day;
+                for (int i=0; i<lengthOfRent; i++){
+                    if(!car.isAvailable(month, currentDay++)){
+                        flag = 1;
+                        break;
+                    }
+                } 
+                if (flag == 0){
+                    return true;
+                }
+            } 
+        }
+        return false;
     }
 
     @Override
