@@ -90,12 +90,26 @@ public class RentACar implements RentACarInterface {
 
     @Override
     public boolean bookCar(Month month, int day, Make make, int lengthOfRent) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
+        if(!checkAvailability(month, day, make, lengthOfRent)){
+            return false;
+        }
+        int carId = getCarAvailable(month, day, make, lengthOfRent);
+        
+        for (Car car : cars)  {
+            if (car.getId() == carId && car.getMake() == make) {
+                int currentDay = day;
+                for (int i=0; i<lengthOfRent; i++){
+                    car.book(month, currentDay++);
+                }
+            }
+        }
+        return true;
     }
 
     @Override
     public int getNumberOfCars() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
 }
