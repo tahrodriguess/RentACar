@@ -15,12 +15,12 @@ import ooc.enums.Month;
  */
 public class RentACar implements RentACarInterface {
 
-    private List<Car> cars;
-    private String name;
+    private List<Car> cars; 
+    private String name; 
     
     public RentACar(List<Car>cars, String name){
-        this.cars = cars;
-        this.name = name;
+        this.cars = cars; // gives value to cars.
+        this.name = name; // gives value to the String
     }
     
     @Override
@@ -44,21 +44,21 @@ public class RentACar implements RentACarInterface {
     }
 
     @Override
-    public boolean checkAvailability(Month month, int day, Make make, int lengthOfRent) {
-        int currentDay, flag;
+    public boolean checkAvailability(Month month, int day, Make make, int lengthOfRent) { // this method checks availability and do the loop prosses.
+        int currentDay, flag; // creates the ints
         
-        for(Car car : cars){
-            if(car.getMake().equals(make)){
+        for(Car car : cars){                //This loop takes the Car&cars through each elements in the array.
+            if(car.getMake().equals(make)){ //this if statment stresses the maker value, given a condition
                 flag = 0;
-                currentDay = day;
-                for (int i=0; i<lengthOfRent; i++){
-                    if(!car.isAvailable(month, currentDay++)){
-                        flag = 1;
+                currentDay = day; 
+                for (int i=0; i<lengthOfRent; i++){ //starts the loop at 0 and gos through the lenght od Rent.
+                    if(!car.isAvailable(month, currentDay++)){ //Reverse the result, returns false if the result is true.
+                        flag = 1; 
                         break;
                     }
                 } 
-                if (flag == 0){
-                    return true;
+                if (flag == 0){  //if the flag is equals to 0 returns true.
+                    return true; // Returns true if the loop statment is false ( equals to 0).
                 }
             } 
         }
@@ -66,19 +66,19 @@ public class RentACar implements RentACarInterface {
     }
 
     @Override
-    public int getCarAvailable(Month month, int day, Make make, int lengthOfRent) {
+    public int getCarAvailable(Month month, int day, Make make, int lengthOfRent) {  // this method gets availability and do the loop prosses.
         int currentDay, flag;
         
         
-        for(Car car : cars){
+        for(Car car : cars){ //This loop takes the Car&cars through each elements in the array.(same)
             if(car.getMake().equals(make)) {
                 flag = 0;
-                currentDay = day;
+                currentDay = day; // is the same for all the loops proccess they will go through the Array elements and return true or false acording to what is in the folder.
                 for (int i=0; i<lengthOfRent; i++){
                     if(!car.isAvailable(month, currentDay++)) {
                      flag = 1;
                      break;
-                    }
+                    }  // in this case will return -1 if there is no car available.
                 }
                 if(flag == 0) {
                     return car.getId();
@@ -96,20 +96,20 @@ public class RentACar implements RentACarInterface {
         }
         int carId = getCarAvailable(month, day, make, lengthOfRent);
         
-        for (Car car : cars)  {
-            if (car.getId() == carId && car.getMake() == make) {
-                int currentDay = day;
+        for (Car car : cars)  {  //This loop takes the Car&cars through each elements in the array.(same)
+            if (car.getId() == carId && car.getMake() == make) { // gets the car id and checks for equality with the carId and does the same for the getMake and make.
+                int currentDay = day;  
                 for (int i=0; i<lengthOfRent; i++){
-                    car.book(month, currentDay++);
+                    car.book(month, currentDay++); //after initializing the couter it will try to book acording to the method on the maid asks for.
                 }
-            }
+            }  
         }
         return true;
     }
 
     @Override
     public int getNumberOfCars() {
-        return cars.size();
+        return cars.size(); 
     }
     
 }
