@@ -77,29 +77,47 @@ public class Car implements CarInterface {
     }
 
     @Override
-    public Map<Month, boolean[]> getAvailability() {
-        
+    public Map<Month, boolean[]> getAvailability() {        
+            
+        return map;
            
     }
 
     @Override
     public void setAvailability(Map<Month, boolean[]> availability) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        this.map = map;
+        
     }
 
     @Override
     public int getId() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        return id;
+    
     }
 
     @Override
     public boolean isAvailable(Month month, int day) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+            
+            boolean[] available = map.get(month);
+                
+                if () { //HEEEEEELP
+                available = true;
+        }
+                
+        return available[];
+    }  
+        
+        
+       }             
+    
     @Override
     public boolean book(Month month, int day) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                   
+                     
+        return false;
+        
     }
     
     
