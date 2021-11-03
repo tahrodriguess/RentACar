@@ -4,7 +4,7 @@ package ooc.yoursolution;
 import java.util.Map;
 import ooc.enums.Make;
 import ooc.enums.Month;
-import java.util.HashMap;
+import java.util.HashMap; //import HashMap
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,7 +18,7 @@ import java.util.HashMap;
  */
 
 public class Car implements CarInterface {
-
+    //variables 
     private int id;
     private Make make;
     private double rate;
@@ -33,7 +33,8 @@ public class Car implements CarInterface {
 
     @Override
     public Map createAvailability() {
-        map = new HashMap<>();
+        map = new HashMap<>(); /*decision based on the explanation in this
+        website https://examples.javacodegeeks.com/java-map-example/  */
 
         map.put(Month.JANUARY, new Boolean[31]);
         map.put(Month.FEBRUARY, new Boolean[28]);
@@ -89,16 +90,17 @@ public class Car implements CarInterface {
     @Override
     public boolean isAvailable(Month month, int day) {
         Boolean[] availability = map.get(month);
-        if (availability[day-1] == null) {
-            availability[day-1] = true;
+        if (availability[day-1] == null) { //condition to see if the car available
+            availability[day-1] = true; //null if it's available, return true
         }
+        
         return availability[day-1];
     }
 
     @Override
     public boolean book(Month month, int day) {
-        if (map.get(month)[day-1]) {
-            map.get(month)[day-1] = false;
+        if (map.get(month)[day-1]) { //condition to check availability
+            map.get(month)[day-1] = false; //if it's not booked return true
             return true;
         }
 
