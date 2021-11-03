@@ -100,26 +100,29 @@ public class Car implements CarInterface {
     @Override
     public boolean isAvailable(Month month, int day) {
             
-            boolean[] available = map.get(month);
+            boolean[] availability = map.get(month);
                 
-                if () { //HEEEEEELP
-                available = true;
-        }
+                if (availability[day-1] == null) { //HEEEEEELP
+                    availability[day-1] = true;
+                }
                 
-        return available[];
-    }  
+        return availability[day-1];
         
         
-       }             
+      }  
     
     @Override
     public boolean book(Month month, int day) {
-                   
-                     
+        if (map.get(month)[day-1]){
+            map.get(month)[day-1] = false;
+            return true;
+            
+        }
+                        
         return false;
         
     }
-    
+      
     
     
 }
