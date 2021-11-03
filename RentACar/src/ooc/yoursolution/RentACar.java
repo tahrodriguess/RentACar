@@ -109,7 +109,7 @@ public class RentACar implements RentACarInterface {
 
     @Override
     public int getNumberOfCars() {
-        
+        return cars.size();
     }
     
 }
