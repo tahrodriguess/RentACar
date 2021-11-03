@@ -21,6 +21,7 @@ import java.io.IOException;
 
 // INCLUDE HERE THE FULL NAME AND STUDENT NUMBER OF BOTH TEAM MEMBERS 
 // Layhene Prado Cecilio Student number: 2020307
+//Tamiris Rodrigues Duarte - Student Number: 2020294
 
 
 /**
