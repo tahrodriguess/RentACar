@@ -102,18 +102,20 @@ public class Car implements CarInterface {
             
             boolean[] available = map.get(month);
                 
-                if (available){
-                    available = true;
-                }
+                if () { //HEEEEEELP
+                available = true;
+        }
+                
+        return available[];
+    }  
         
-        return available[day-1];        
+        
        }             
     
     @Override
     public boolean book(Month month, int day) {
-            
-
-        
+                   
+                     
         return false;
         
     }
